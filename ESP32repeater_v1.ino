@@ -168,6 +168,8 @@ void setup() {
   Serial.begin(115200);
   Serial.println("\nESP32 Repeater Controller Starting...");
   
+
+  
   // Initialize SPIFFS for storing configuration
   if(!SPIFFS.begin(true)) {
     Serial.println("SPIFFS Mount Failed");
@@ -181,9 +183,11 @@ void setup() {
   
   // Setup pins
   pinMode(PttPin, OUTPUT);
-  pinMode(CarDetPin, INPUT); // Changed from INPUT_PULLUP to INPUT
+  pinMode(CarDetPin, INPUT); // Restored to original INPUT_PULLUP
   pinMode(CW_pin, OUTPUT);
   pinMode(TxLedPin, OUTPUT);
+  
+
   
   // Initialize outputs
   digitalWrite(PttPin, LOW);
@@ -212,10 +216,12 @@ void setup() {
 }
 
 void loop() {
+
+  
   // Handle web server clients
   server.handleClient();
   
-  // Main repeater functionality
+  // Repeater controller logic
   if (useRssiMode) {
     RssiDetect();  // RSSI mode
   } else {
@@ -313,13 +319,10 @@ void CarrDetect() {
   // Set CarDetON based on carrier state
   CarDetON = carrierActive;
   
-  // Always print debug info for carrier detection to help troubleshoot
-  Serial.print("Carrier Pin State: ");
-  Serial.print(carrierState == HIGH ? "HIGH" : "LOW");
-  Serial.print(", CarrierActiveHigh: ");
-  Serial.print(CarrierActiveHigh);
-  Serial.print(", Carrier: ");
-  Serial.println(CarDetON ? "ON" : "OFF");
+  if (debugCarrDetect) {
+    Serial.print("Carrier: ");
+    Serial.println(CarDetON ? "ON" : "OFF");
+  }
 }
 
 // RSSI Detect function
