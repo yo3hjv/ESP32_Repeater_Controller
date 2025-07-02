@@ -183,7 +183,7 @@ void setup() {
   
   // Setup pins
   pinMode(PttPin, OUTPUT);
-  pinMode(CarDetPin, INPUT); // Restored to original INPUT_PULLUP
+  pinMode(CarDetPin, INPUT_PULLUP); // Restored to original INPUT_PULLUP
   pinMode(CW_pin, OUTPUT);
   pinMode(TxLedPin, OUTPUT);
   
