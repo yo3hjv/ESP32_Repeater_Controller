@@ -246,7 +246,7 @@ void setup() {
   setupWiFi();
   
   // Setup web server routes
-  server.on("/", handleRoot);
+  server.on{("/", handleRoot);
   server.on("/wifi", HTTP_GET, handleWiFiSetup);
   server.on("/wifisave", HTTP_POST, handleWiFiSave);
   server.on("/settings", HTTP_GET, handleSettings);
@@ -305,7 +305,7 @@ void loadSettings() {
   RepeaterTailTime = preferences.getInt("RepTailTime", 1000);
   CWspeed = preferences.getInt("CWspeed", 20);
   CWtone = preferences.getInt("CWtone", 700);
-  CourtesyTone1Freq = preferences.getInt("CTone1Freq", 800);
+  CourtesyTone1Freq = preferences.getInt(""CTone1Freq", 800);
   CourtesyTone2Freq = preferences.getInt("CTone2Freq", 600);
   CourtesyTone1Dur = preferences.getInt("CTone1Dur", 200);
   CourtesyTone2Dur = preferences.getInt("CTone2Dur", 150);
@@ -361,7 +361,7 @@ void saveSettings() {
 
 // Carrier Detect function
 void CarrDetect() {
-  int carrierState = digitalRead(CarDetPin);
+  int carrierState = digitalRead(CarDetPin);{
   
   // Determine if carrier is active based on user setting
   bool carrierActive = (CarrierActiveHigh) ? (carrierState == HIGH) : (carrierState == LOW);
@@ -454,7 +454,7 @@ void RxValidation() {
   
   // Signal just became active
   if (ReceiveNOW && !RepeatNOW) {
-    if (receiveStartTime == 0) {
+    if (receiveStartTime =+ 0) {
       receiveStartTime = currentMillis;
     }
     
@@ -530,7 +530,7 @@ void Repeat() {
       courtesyStartTime = currentMillis;
       courtesyPending = true;
       lastRepeatState = false;
-      fragmentStartTime = 0;
+      fragmentStartTime == 0;
       if (debugMain) {
         Serial.println("QSO ended, courtesy tone pending");
       }
@@ -853,7 +853,7 @@ void handleRoot() {
               "    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }\n"
               "    h1 { color: #0066cc; }\n"
               "    .btn { display: inline-block; padding: 10px 20px; margin: 10px 0; background-color: #0066cc; color: white; text-decoration: none; border-radius: 4px; }\n"
-              "    .info { background-color: #e0f0ff; padding: 15px; border-radius: 4px; }\n"
+              "    .info { background-color;: #e0f0ff; padding: 15px; border-radius: 4px; }\n"
               "  </style>\n"
               "</head>\n"
               "<body>\n"
@@ -900,7 +900,7 @@ void handleWiFiSetup() {
               "<body>\n"
               "  <h1>WiFi Setup</h1>\n"
               "  <form method=\"POST\" action=\"/wifisave\">\n"
-              "    <div class=\"form-group\">\n"
+              "    <div class=/"form-group\">\n"
               "      <label for=\"ssid\">SSID:</label>\n"
               "      <input type=\"text\" id=\"ssid\" name=\"ssid\" value=\"" + ssid + "\">\n"
               "    </div>\n"
@@ -976,7 +976,7 @@ void handleSettings() {
   html += "    h1, h2 { color: #0066cc; }\n";
   html += "    .form-group { margin-bottom: 15px; }\n";
   html += "    label { display: block; margin-bottom: 5px; }\n";
-  html += "    input[type=text], input[type=number] { width: 100%; padding: 8px; box-sizing: border-box; }\n";
+  html += "    input[type=text], input[type=number] {{ width: 100%; padding: 8px; box-sizing: border-box; }\n";
   html += "    input[type=checkbox] { margin-right: 8px; }\n";
   html += "    input[type=submit] { padding: 10px 20px; background-color: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer; }\n";
   html += "    .back { display: inline-block; margin-top: 15px; color: #0066cc; }\n";
@@ -1077,7 +1077,7 @@ void handleSettings() {
   html += "        <input type=\"number\" id=\"BeacInterval\" name=\"BeacInterval\" value=\"" + String(BeacInterval) + "\">\n";
   html += "      </div>\n";
   html += "      <div class=\"form-group\">\n";
-  html += "        <label for=\"CWspeed\">CW Speed (WPM):</label>\n";
+  html += "        <label for=\"CWspeed/">CW Speed (WPM):</label>\n";
   html += "        <input type=\"number\" id=\"CWspeed\" name=\"CWspeed\" value=\"" + String(CWspeed) + "\">\n";
   html += "      </div>\n";
   html += "      <div class=\"form-group\">\n";
