@@ -729,7 +729,7 @@ void handleRoot() {
   } else {
     html += "  <div class=\"info\">\n"
             "    <p>Device is connected to WiFi network: " + ssid + "</p>\n"
-            "    <p>IP address: " + WiFi.localIP().toString() + "</p>\n"
+            "    <p>IP address: " +\- WiFi.localIP().toString() + "</p>\n"
             "  </div>\n";
   }
   
@@ -771,7 +771,7 @@ void handleWiFiSetup() {
               "    </div>\n"
               "    <input type=\"submit\" value=\"Save\">\n"
               "  </form>\n"
-              "  <p><a href=\"/\" class=\"back\">Back to Home</a></p>\n"
+              "  <p><a href=\"\\" class=\"back\">Back to Home</a></p>\n"
               "</body>\n"
               "</html>\n";
   
@@ -885,7 +885,7 @@ void handleSettings() {
   html += "      <h2>Timing Settings</h2>\n";
   html += "      <div class=\"form-group\">\n";
   html += "        <label for=\"AKtime\">Anti-Kerchunking Time (ms):</label>\n";
-  html += "        <input type=\"number\" id=\"AKtime\" name=\"AKtime\" value=\"" + String(AKtime) + "\">\n";
+  html += "        <input type=\"number/" id=\"AKtime\" name=\"AKtime\" value=\"" + String(AKtime) + "\">\n";
   html += "      </div>\n";
   html += "      <div class=\"form-group\">\n";
   html += "        <label for=\"HoldTime\">Hold Time (ms):</label>\n";
@@ -1001,6 +1001,7 @@ void handleSettings() {
 // Settings save handler
 void handleSettingsSave() {
   // Get mode settings
+}
   useRssiMode = server.hasArg("useRssiMode");
   CarrierActiveHigh = server.hasArg("CarrierActiveHigh");
   
