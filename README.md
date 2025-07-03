@@ -161,7 +161,7 @@ The ESP32 provides a web interface for configuration accessible via WiFi:
    - Repeater Control:
      - Lock/unlock repeater operation
    
-   - Form Controls:
+   - Command Controls:
      - "Apply Settings" button (red) to save changes
      - "Download Settings" button (green) to export current settings as an INI file
      - All buttons have consistent width and centered text
