@@ -277,6 +277,66 @@ The ESP32 Repeater Controller is designed to efficiently handle both web server 
 
 This architecture ensures reliable repeater operation even while actively using the web interface for monitoring or configuration.
 
+## SERIAL DEBUGGING
+
+The ESP32 Repeater Controller provides comprehensive serial debugging options to help with troubleshooting and monitoring system operation.
+
+### Accessing Serial Debug Output
+
+1. **Connection Setup**:
+   - Connect your computer to the ESP32 using a USB cable
+   - Use any serial terminal program (Arduino IDE Serial Monitor, PuTTY, etc.)
+   - Set baud rate to 115200 bps
+   - Configure for Newline (NL) or Carriage Return + Newline (CR+NL)
+
+2. **Debug Categories**:
+   - **Main Debug**: General system status, timing events, and repeater state changes
+   - **RSSI Debug**: Detailed RSSI readings and threshold comparisons
+   - **Beacon Debug**: Information about beacon timing and transmission
+
+3. **Enabling Debug Output**:
+   - Navigate to the Settings page in the web interface
+   - Scroll to the Debug Settings section
+   - Enable the desired debug categories (Main, RSSI, Beacon)
+   - Click "Apply Settings" to save changes
+
+### Debug Output Format
+
+Serial debug messages follow a consistent format with timestamps and category prefixes:
+
+- **Timestamp**: [milliseconds since boot]
+- **Category**: [MAIN], [RSSI], or [BEACON]
+- **Message**: Descriptive text of the event or status
+
+Example output:
+```
+[12345] [MAIN] Signal detected, starting Anti-Kerchunking timer
+[12645] [MAIN] Anti-Kerchunking time elapsed, activating repeater
+[12646] [MAIN] PTT activated
+```
+
+### Using Debug Information
+
+1. **Troubleshooting Signal Detection**:
+   - Enable RSSI Debug to monitor signal levels and threshold crossings
+   - Compare actual RSSI values against configured thresholds
+   - Observe hysteresis behavior in noisy environments
+
+2. **Timing Verification**:
+   - Monitor Main Debug to verify correct operation of timers
+   - Confirm Anti-Kerchunking, Hold Time, and Fragment Time are working as expected
+   - Verify timeout protection and minimum pause enforcement
+
+3. **Beacon Diagnostics**:
+   - Enable Beacon Debug to monitor beacon scheduling and transmission
+   - Verify correct CW timing and message content
+
+### Performance Considerations
+
+- Enabling all debug options may slightly increase system load
+- For normal operation, disable debug outputs when not needed
+- Serial output does not affect critical repeater timing functions
+
 
 ## RECOMMENDED HARDWARE
 
