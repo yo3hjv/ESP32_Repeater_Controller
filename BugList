@@ -1,0 +1,4 @@
+1. In 1.0.
+  -if I2C is not present, core functions are blocked.
+
+  
