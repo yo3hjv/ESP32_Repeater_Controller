@@ -344,3 +344,7 @@ The following ESP32 development boards are recommended for use with this control
 
 - [Board 1 - ESP32 Development Board](https://www.aliexpress.com/item/1005008669669631.html)
 - [Board 2 - ESP32 WROOM Module](https://www.aliexpress.com/item/1005007640283735.html)
+
+
+### For detailed instructions about how to upload the code with ESP32 Flash Tool from Espressif, check the post on my blog. At the end of the User Manual is a description of the procedure.
+https://yo3hjv.blogspot.com/2025/07/esp32-repeater-controller-for-ham.html
