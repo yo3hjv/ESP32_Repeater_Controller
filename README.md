@@ -83,6 +83,9 @@ During the "Fragment Time" (default: 600ms), the repeater continues to monitor f
 If the signal returns during this period, the repeater continues normal operation.
 This prevents the repeater from deactivating during normal speech pauses.
 
+### Some considerations about timers at this stage
+While the "Hold Time" and the "Fragment Time" can have the practical effect of delaying the Courtesy Tone, he "Hold Time" is part of a signal detection algorythm with it's own logic that try to decide if the signal received is a valid signal from a legit transmitter and not just a spike in the noise or an abusive operator. The perceived effect of "Hold Time", if a lower value is chosen is, indeed, to shorten the Courtesy tone delay but this will affect the reliability of the detection. To make the delay from the last transmission to the Courtesy Tone, use "Fragment Time" only. 
+
 ### Courtesy Tone Sequence
 If no signal returns during the entire Fragment Time, the repeater prepares to deactivate.
 The repeater will play the "Courtesy Tone" after a very brief "Courtesy Interval" to indicate the channel is clear for another transmission.
